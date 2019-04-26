@@ -2,7 +2,7 @@
 Cycler to submit jobs iteratively on BlueHive (with OpenMM templates).
 
 The cycler consists of 2 bash scripts (cycle and cycler.sh) + a python
-template file (PREFIX.py) that work together to run an interation or
+template file (PREFIX.py) that work together to run an iteration or
 cycle of a simulation. Below is a quick description of each of these
 files:
 
@@ -18,7 +18,7 @@ files:
    	      iteration was completed correctly, 2) starts the current
    	      work (runs the template script, see below) and 3)
    	      submits a dependent job for the next iteration that will start
-	      once the current job is completed
+	      once the current job is completed.
 
 3. PREFIX.py: the "template", this is where all the OpenMM-related
    	   options are defined. I've included a sample template, so in
@@ -26,7 +26,7 @@ files:
    	   the template file can be modified as needed, depending on
    	   the system that needs to be run. The important thing to
    	   note is that the PREFIX of the job and the current
-   	   iteration number are taken from the command line
+   	   iteration number are taken from the command line.
 
 
 
@@ -48,7 +48,7 @@ will run the 10th iteration of the simulation indicated by npt.py.
 
 Whenever you start the cycler, two jobs will appear in the queue. The
 one that says '(Dependency)' in the NODELIST column will start the next
-iteration once the current is done. The other job corresponds to the
+iteration once the current job is done. The other job corresponds to the
 current iteration.
 
 Note that the cycler does not really handle a "0th" iteration, since
@@ -58,7 +58,7 @@ all. Instead, the cycler is intended for systems that already have at
 least a little bit of production and it requires you to already have a
 restart or a checkpoint file from where to continue the simulation
 (see below). These files should be named PREFIX_previous.xml or
-PREFIX_previous.chk, where previous corresponds to the iteration
+PREFIX_previous.chk, where previous corresponds to the iteration number
 previous to the one you want to run. For example, if you want to start
 the cycler in the 2nd iteration using the npt.py template, then
 npt_1.xml or npt_1.chk should already exist. Then, you can run the
@@ -67,7 +67,7 @@ cycler as,
      ./cycle npt-2
 
 If multiple simulations need be run using the same cyler, it might be
-useful to alias it in ~/.bash profile. To do so, just open
+useful to alias it in your ~/.bash profile. To do so, just open
 ~/.bash_profile in a text editor and add the following line,
 
      alias cycle='/path-to-cycle/cycle'
@@ -129,11 +129,12 @@ to go around this issue and I have implemented it and tested it in the
 cycler, so it should be functional now. Just make sure to set the
 variable report_interval as a multiple of nsteps in PREFIX.py.
 
-Based on these limitations, I am choosing to save both for now: As
+Based on these limitations, I am choosing to leave both as an option for now: As
 long as the simulation is run with the same version of OpenMM and in
-the same architecture, the checkpoint files shold work just
-fine. However, we still want to have platform independent restart
-files, just in case they are needed in the future.
+the same architecture, the checkpoint files should work just
+fine. However, it is still preferable to have platform independent restart
+files, just in case they are needed in the future. So, the lines for checkpoint files
+are commented out.
 
 
 
