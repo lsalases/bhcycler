@@ -17,7 +17,7 @@ from sys import stdout, exit, stderr
 prefix = sys.argv[1]
 iteration = sys.argv[2]
 previous = str(int(sys.argv[2]) - 1)
-nsteps = 1000000 # 2 ns
+nsteps = 10000000 # 20 ns
 report_interval = 50000 # 100 ps; must be a multiple of nsteps
 
 # Input files
