@@ -18,8 +18,8 @@ from sys import stdout, exit, stderr
 prefix = sys.argv[1]
 iteration = sys.argv[2]
 previous = str(int(sys.argv[2]) - 1)
-nsteps = 20000000 # 40 ns
-report_interval = 50000 # 100 ps; must be a multiple of nsteps
+nsteps = 20000000 # 40 ns; must be a multiple of report_interval
+report_interval = 50000 # 100 ps
 
 # Input files
 psf = CharmmPsfFile('model.psf')
