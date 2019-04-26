@@ -8,7 +8,7 @@ module load cuda/9.0 gcc
 module load openmm/7.2.1
 
 # Default variables
-DRIVER=/scratch/lsalases/dcee/cycler/cycler.sh
+DRIVER=/path-to/cycler.sh
 TIMELIMIT="12:00:00"
 NODES="1"
 PARTITION="gpu"
