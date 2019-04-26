@@ -4,6 +4,7 @@
 npt.py
 
    Equilibrate a membrane system in the NPT ensemble.
+   Note that this is a sample script. Modify as needed.
 
 '''
 
