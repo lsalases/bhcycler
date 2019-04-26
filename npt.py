@@ -3,7 +3,7 @@
 '''
 npt.py
 
-   Equilibrate a POPC:CHOL membrane in the NPT enseble.
+   Equilibrate a membrane system in the NPT ensemble.
 
 '''
 
@@ -21,7 +21,7 @@ nsteps = 1000000 # 2 ns
 report_interval = 50000 # 100 ps; must be a multiple of nsteps
 
 # Input files
-psf = CharmmPsfFile('popc_20chol.psf')
+psf = CharmmPsfFile('model.psf')
 
 # Force field parameters
 forcefield = CharmmParameterSet('parameters/top_all36_prot.rtf', 
@@ -76,7 +76,7 @@ simulation.loadState(prefix + '_' + previous + '.xml')
 #simulation.minimizeEnergy()
 
 # Set up the outputs of the simulation
-simulation.reporters.append(CheckpointReporter(prefix + '_' + iteration + '.chk', report_interval))
+#simulation.reporters.append(CheckpointReporter(prefix + '_' + iteration + '.chk', report_interval))
 simulation.reporters.append(DCDReporter(prefix + '_' + iteration + '.dcd', report_interval,
                                                enforcePeriodicBox=True))
 simulation.reporters.append(StateDataReporter(prefix + '_' + iteration + '.log', report_interval,
