@@ -66,14 +66,14 @@ properties = dict(CudaPrecision='mixed')
 # Set up the simulation
 simulation = Simulation(psf.topology, system, integrator, platform, properties) 
 
-# Set up the positions of every atom in the system (comment out after first iteration)
+# Set up the positions of every atom in the system (commented out after first iteration)
 #simulation.context.setPositions(pdb.positions)
 
 # Load the last check point
 simulation.loadState(prefix + '_' + previous + '.xml')
 #simulation.loadCheckpoint(prefix + '_' + previous + '.chk')
 
-# Get rid of atomic clashes and bad contacts (comment out after first iteration)
+# Get rid of atomic clashes and bad contacts (commented out after first iteration)
 #simulation.minimizeEnergy()
 
 # Set up the outputs of the simulation
