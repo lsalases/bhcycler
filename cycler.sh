@@ -22,20 +22,20 @@ NEXTITER=$((ITERATION + 1))
 echo "Jobname:" $JOBNAME
 
 # Check that files from previous iteration exist
-checkpoint=$(echo $PREFIX"_"$PREVITER".chk")
+#checkpoint=$(echo $PREFIX"_"$PREVITER".chk")
 restart=$(echo $PREFIX"_"$PREVITER".xml")
 trajectory=$(echo $PREFIX"_"$PREVITER".dcd")
-if [[ ! -e "$checkpoint" ]]
-then
-    echo "An error occurred in iteration "$PREVITER". Exiting..." && exit 0
-fi 
+#if [[ ! -e "$checkpoint" ]]
+#then
+#    echo "An error occurred with the checkpoint file of iteration "$PREVITER". Exiting..." && exit 0
+#fi 
 if [[ ! -e "$restart" ]]
 then
-    echo "An error occurred in iteration "$PREVITER". Exiting..." && exit 0
+    echo "An error occurred with the restart file of iteration "$PREVITER". Exiting..." && exit 0
 fi
 if [[ ! -e "$trajectory" ]]
 then
-    echo "An error occurred in iteration "$PREVITER". Exiting..." && exit 0
+    echo "An error occurred in with the trajectory of iteration "$PREVITER". Exiting..." && exit 0
 fi
 
 # Submit next job
