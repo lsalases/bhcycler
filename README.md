@@ -120,14 +120,14 @@ simulation will probably not run. This might also happen if you try
 using a different computer architecture or even a different version of
 OpenMM.
 
-So, I think that the wiser choice is to switch to XML files whenever
+So, I think that the wiser choice is to use XML files whenever
 possible, since they are way more portable. The only problem I see
 with using XML files is that there is not a built-in reporter for them
 in OpenMM. This means that there is not a direct way (that I know) to
 generate an XML file every n simulation steps. Alan came up with a way
 to go around this issue and I have implemented it and tested it in the
 cycler, so it should be functional now. Just make sure to set the
-variable report_interval as a multiple of nsteps in PREFIX.py.
+variable nsteps as a multiple of report_interval in PREFIX.py.
 
 Based on these limitations, I am choosing to leave both as an option for now: As
 long as the simulation is run with the same version of OpenMM and in
